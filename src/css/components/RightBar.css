@@ -1,0 +1,79 @@
+.rightbar-content {
+  width: 280px;
+  background-color: var(--background-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 1rem;
+  border-left: 1px solid var( --border-color-grey);
+  color: var(--text-color);
+}
+
+.rightbar-section + .rightbar-section {
+  margin-top: 1.5rem;
+}
+
+.rightbar-section-title {
+  margin-top: 2px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-color);
+}
+.rightbar-list-item-text {
+  display: flex;
+  flex-direction: column;
+}
+.rightbar-list-item-text p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-color);
+}
+.rightbar-list-item-text small {
+  margin-top: -10px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--secondary-text-color);
+}
+
+.rightbar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rightbar-list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.rightbar-list-item-icon {
+  margin-top: 12px;
+}
+
+.rightbar-avatar {
+  margin-top: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+   border-bottom: 4px solid var(--border-color-grey);
+}
+
+.rightbar-contact-avatar {
+  margin-top: 6px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+ 
+}
+
+.rightbar-list.contacts .rightbar-list-item {
+  cursor: pointer;
+  gap: 0.5rem;
+}

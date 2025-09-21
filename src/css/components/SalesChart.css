@@ -1,0 +1,119 @@
+.sales-component {
+  width: 202px;
+  height: 318px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: var(--table-header-bg);
+  border-radius: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.sales-title {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 12px;
+  user-select: none;
+  color: var(--text-color);
+  text-align: start;
+  margin-left: 25px;
+  width: 100%;
+}
+
+.sales-main-icon {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 16px;
+}
+
+.sales-data-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+.sales-data-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px; /* unified font size */
+  color: var(--text-color);
+  user-select: none;
+  justify-content: space-evenly;
+  padding: 0px 6px;
+}
+
+.sales-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.direct-dot {
+  background-color: #1c1c1c;
+}
+
+.affiliate-dot {
+  background-color: #baedbd;
+}
+
+.sponsored-dot {
+  background-color: #95a4fc;
+}
+
+.email-dot {
+  background-color: #b1e3ff;
+}
+
+[data-theme="dark"] .direct-dot {
+  background-color: #c6c7f8;
+}
+
+[data-theme="dark"] .affiliate-dot {
+  background-color: #baedbd;
+}
+
+[data-theme="dark"] .sponsored-dot {
+  background-color: #95a4fc;
+}
+
+[data-theme="dark"] .email-dot {
+  background-color: #b1e3ff;
+}
+
+.sales-data-label {
+  flex-grow: 1;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text-color);
+
+}
+
+.sales-data-item:hover {
+  background-color: #dde4eb;
+  border-radius: 6px;
+}
+
+
+[data-theme="dark"] .sales-data-item:hover {
+  background-color: #313131;
+  border-radius: 6px;
+}
+
+.sales-data-value {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text-color);
+}
+
+

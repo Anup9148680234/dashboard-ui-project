@@ -1,0 +1,22 @@
+.dashboard-grid-wrapper {
+  background-color: var(--background-color, #f9fafb);
+}
+
+.dashboard-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 202px);
+  grid-template-rows: repeat(2, auto);   
+  gap: 24px 24px;                          
+  justify-content: center;                 
+  margin: 0 auto;
+  max-width: 432px;    
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    max-width: 432px;
+    gap: 18px;
+  }
+}
