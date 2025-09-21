@@ -21,6 +21,11 @@ Welcome to the SaaS Dashboard project — a modern, responsive, and theme-ready 
 
 This dashboard project showcases interactive charts, data visualizations, routing, and modern UI components powered by Material UI and React ecosystem. It includes light/dark themes, responsive layouts, and real-time UI elements — perfect for SaaS applications.
 
+### Pages
+
+1. `https://dashboard-ui-project-cyan.vercel.app/` - Dashborad
+2. `https://dashboard-ui-project-cyan.vercel.app/orders-list` - Orders List   
+
 ---
 
 ## Features
