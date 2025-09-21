@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+# SaaS Dashboard Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the SaaS Dashboard project — a modern, responsive, and theme-ready admin dashboard built with React.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Overview
 
-### `npm test`
+This dashboard project showcases interactive charts, data visualizations, routing, and modern UI components powered by Material UI and React ecosystem. It includes light/dark themes, responsive layouts, and real-time UI elements — perfect for SaaS applications.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Dynamic, responsive charts using **Chart.js**, **Recharts**, and **react-simple-maps**
+- Theme toggling (light and dark modes)
+- Smooth animations with **Framer Motion**
+- User-friendly routing with **React Router DOM**
+- Accessible and modular UI using **Material UI (MUI)**
+- Simple state management using React hooks
+- Well-tested with **Testing Library**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies Used
 
-### `npm run eject`
+This project utilizes the following key libraries and frameworks:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Library                   | Purpose                         | Version   |
+|---------------------------|--------------------------------|-----------|
+| React                     | Frontend Framework              | ^18.3.1   |
+| @mui/material             | Material UI UI components       | ^7.3.2    |
+| @mui/icons-material       | Material UI icons               | ^7.3.2    |
+| @emotion/react/styled     | CSS-in-JS styling               | ^11.14.0  |
+| react-chartjs-2           | Chart.js wrapper for React      | ^5.3.0    |
+| Chart.js                  | Charting library                | ^4.5.0    |
+| recharts                  | Composable charting components | ^3.2.1    |
+| react-simple-maps         | SVG maps for React             | ^3.0.0    |
+| framer-motion             | Animations and transitions     | ^12.23.16 |
+| react-router-dom          | Routing                        | ^7.9.1    |
+| @testing-library/react    | Testing utilities              | ^16.3.0   |
+| web-vitals                | Performance measurement        | ^2.1.4    |
+| react-scripts             | React build scripts            | 5.0.1     |
+| @fontsource/inter         | Custom font integration        | ^5.2.8    |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Clone this repo and install dependencies:
 
-## Learn More
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+git clone [repo_url]
+cd saas-dashboard-assignment
+npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
 
-### Analyzing the Bundle Size
+To run the app in development mode:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
 
-### Making a Progressive Web App
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
 
-### Advanced Configuration
+Open [http://localhost:3000](http://localhost:3000) to view in the browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Folder Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
 
-### `npm run build` fails to minify
+/src
+/assets       \# Static images, icons, fonts
+/components   \# React UI components
+/css          \# Styling files (CSS/SCSS)
+/data         \# Static JSON or mock data
+/pages        \# App pages or views
+/context      \# React Context providers
+App.jsx       \# Root app component
+index.js      \# React DOM render
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+
+---
+
+## Contributing
+
+Feel free to fork, submit issues, and pull requests. Please adhere to clean code rules, consistent styling, and test your changes.
+
+---
+
+## License
+
+This project is for academic purposes. Feel free to use and customize it for learning.
+
+---
+
+Created by  anupangaditapcart and Anup9148680234  [ Note both are my own accounts, one of them is my company account] 
+
+```
