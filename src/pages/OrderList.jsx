@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import "../css/pages/OrderList.css";
 import initialOrders from "../data/orders.json";
 import SwitchableIcon from "../components/SwitchableIcon";
@@ -19,24 +19,24 @@ import ArrowRightDark from "../assets/icons/ArrowRight-dark.png";
 
 import commonProfile from '../assets/icons/profile1.png';
 
+
 function PurchaseList() {
   const [purchaseOrders, setPurchaseOrders] = useState(initialOrders);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
+  const [sortConfig, setSortConfig] = useState({ key: "id", direction: "asc" });
 
   const toggleSelection = (id) => {
-    setSelectedItems((prevSelected) =>
-      prevSelected.includes(id)
-        ? prevSelected.filter((itemId) => itemId !== id)
-        : [...prevSelected, id]
+    setSelectedItems((prev) =>
+      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
     );
   };
 
   const toggleSelectAllItems = () => {
-    if (selectedItems.length === purchaseOrders.length) {
-      setSelectedItems([]);
-    } else {
-      setSelectedItems(purchaseOrders.map((item) => item.id));
-    }
+    if (selectedItems.length === purchaseOrders.length) setSelectedItems([]);
+    else setSelectedItems(purchaseOrders.map((i) => i.id));
   };
 
   const allSelected =
@@ -50,6 +50,44 @@ function PurchaseList() {
     rejected: "var(--status-rejected-color)",
   };
 
+  const filteredOrders = purchaseOrders.filter((order) => {
+    if (statusFilter !== "all" && order.status.toLowerCase() !== statusFilter)
+      return false;
+    const search = searchTerm.toLowerCase();
+    return (
+      order.id.toString().toLowerCase().includes(search) ||
+      order.user.toLowerCase().includes(search) ||
+      order.project.toLowerCase().includes(search) ||
+      order.address.toLowerCase().includes(search) ||
+      order.status.toLowerCase().includes(search)
+    );
+  });
+
+  const sortedOrders = useMemo(() => {
+    if (!sortConfig.key) return filteredOrders;
+    return [...filteredOrders].sort((a, b) => {
+      let aKey = a[sortConfig.key];
+      let bKey = b[sortConfig.key];
+      if (sortConfig.key === "date") {
+        aKey = new Date(aKey);
+        bKey = new Date(bKey);
+      } else {
+        if (typeof aKey === "string") aKey = aKey.toLowerCase();
+        if (typeof bKey === "string") bKey = bKey.toLowerCase();
+      }
+      if (aKey < bKey) return sortConfig.direction === "asc" ? -1 : 1;
+      if (aKey > bKey) return sortConfig.direction === "asc" ? 1 : -1;
+      return 0;
+    });
+  }, [filteredOrders, sortConfig]);
+
+  const toggleSort = () => {
+    setSortConfig((prev) => ({
+      key: "id",
+      direction: prev.direction === "asc" ? "desc" : "asc",
+    }));
+  };
+
   return (
     <div className="order-list-container">
       <h2>Purchase List</h2>
@@ -60,16 +98,30 @@ function PurchaseList() {
             lightSrc={AddIcon}
             darkSrc={AddIconDark}
           />
-          <SwitchableIcon
-            className="order-list-icon"
-            lightSrc={FilterIcon}
-            darkSrc={FilterIconDark}
-          />
-          <SwitchableIcon
-            className="order-list-icon"
-            lightSrc={SortIcon}
-            darkSrc={SortIconDark}
-          />
+          <button
+            type="button"
+            className="icon-button"
+            aria-label="Toggle Filter"
+            onClick={() => setIsFilterVisible((v) => !v)}
+          >
+            <SwitchableIcon
+              className="order-list-icon"
+              lightSrc={FilterIcon}
+              darkSrc={FilterIconDark}
+            />
+          </button>
+          <button
+            type="button"
+            className="icon-button"
+            aria-label="Toggle Sort by Order ID"
+            onClick={toggleSort}
+          >
+            <SwitchableIcon
+              className="order-list-icon"
+              lightSrc={SortIcon}
+              darkSrc={SortIconDark}
+            />
+          </button>
         </div>
         <div className="order-list-search">
           <SwitchableIcon
@@ -77,9 +129,35 @@ function PurchaseList() {
             darkSrc={SearchIconDark}
             className="order-list-search-icon"
           />
-          <input type="search" placeholder="Search" />
+          <input
+            type="search"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            aria-label="Search orders"
+          />
         </div>
       </div>
+
+      {isFilterVisible && (
+        <div className="filter-dropdown">
+          <label htmlFor="statusFilter">Filter by Status:</label>
+          <select
+            id="statusFilter"
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            className="status-filter-select"
+          >
+            <option value="all">All Statuses</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+            <option value="inprogress">In Progress</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+      )}
+
       <table className="order-list-table">
         <thead>
           <tr>
@@ -91,7 +169,7 @@ function PurchaseList() {
                 aria-label="Select all purchases"
               />
             </th>
-            <th>Order ID</th>
+            <th>Order ID {sortConfig.direction === "asc" ? "▲" : "▼"}</th>
             <th>User</th>
             <th>Project</th>
             <th>Address</th>
@@ -100,7 +178,14 @@ function PurchaseList() {
           </tr>
         </thead>
         <tbody>
-          {purchaseOrders.map((order) => {
+          {sortedOrders.length === 0 && (
+            <tr>
+              <td colSpan="7" style={{ textAlign: "center", padding: "1rem" }}>
+                No orders found.
+              </td>
+            </tr>
+          )}
+          {sortedOrders.map((order) => {
             const keyStatus = order.status.toLowerCase().replace(/\s+/g, "");
             return (
               <tr
@@ -157,7 +242,7 @@ function PurchaseList() {
         </tbody>
       </table>
       <div className="order-list-pagination">
-        <button className="pagination-arrow">
+        <button className="pagination-arrow" aria-label="Previous page">
           <SwitchableIcon lightSrc={ArrowLeftLight} darkSrc={ArrowLeftDark} />
         </button>
         {[1, 2, 3, 4, 5].map((num) => (
@@ -165,12 +250,13 @@ function PurchaseList() {
             {num}
           </button>
         ))}
-        <button className="pagination-arrow">
+        <button className="pagination-arrow" aria-label="Next page">
           <SwitchableIcon lightSrc={ArrowRightLight} darkSrc={ArrowRightDark} />
         </button>
       </div>
     </div>
   );
 }
+
 
 export default PurchaseList;

@@ -23,7 +23,7 @@ const getChartData = (isDarkMode) => ({
   datasets: [
     {
       label: "Current Week",
-      data: [15, 10, 11, 18, 20, 20.5],
+      data: [15, 9, 11, 18, 20, 20.5],
       borderColor: isDarkMode ? "#fff" : "#222",
       backgroundColor: isDarkMode ? "rgba(50,50,50,0.12)" : "rgba(34,34,34,0.03)",
       tension: 0.4,  
@@ -33,7 +33,7 @@ const getChartData = (isDarkMode) => ({
     },
     {
       label: "Previous Week",
-      data: [10, 18, 16, 13, 15, 23],
+      data: [10, 24, 16, 13, 15, 23],
       borderColor: "#8CB4E2",
       backgroundColor: "rgba(140,180,226,0.12)",
       tension: 0.4,   

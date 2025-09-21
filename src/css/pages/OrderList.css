@@ -210,3 +210,102 @@ input[type="checkbox"]:checked::after {
   background-color: var(--hover-bg-color);
   border-radius: 8px;
 }
+
+
+.filter-dropdown {
+  margin: 0.5rem 0 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .filter-dropdown {
+  color: #f9f9f9;
+  background-color: rgb(30, 30, 30);
+}
+
+.filter-dropdown label {
+  white-space: nowrap;
+}
+
+.status-filter-select {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 6px;
+  background-color: var(--background-color, #fff);
+  color: var(--text-color);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image:
+    url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="%23666" d="M6 8L0 0h12z"/></svg>'),
+    linear-gradient(to bottom, #fff 0%,#f9f9f9 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.5rem top 50%, 0 0;
+  background-size: 12px 8px, 100%;
+}
+
+[data-theme="dark"] .status-filter-select {
+  background-color: rgb(30, 30, 30);
+  color: #f9f9f9;
+  background-image:
+    url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="%23AAA" d="M6 8L0 0h12z"/></svg>'),
+    linear-gradient(to bottom, #1e1e1e 0%,#2a2a2a 100%);
+}
+
+
+.icon-button,
+.icon-button:focus,
+.icon-button:active {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  outline: none;
+  transition: filter 0.2s ease;
+}
+
+.icon-button:hover {
+  filter: brightness(0.85);
+}
+
+.icon-button:focus-visible {
+  outline: 2px solid var(--primary-color, #007bff);
+  outline-offset: 2px;
+}
+
+.order-list-search input[type="search"] {
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem 0.4rem 2rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-list-search input[type="search"]:focus {
+  border-color: var(--primary-color, #007bff);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+}
+
+.order-list-search-icon {
+  position: relative ;
+  left: 2rem;
+  margin: 0.6rem 0 0 0.6rem;
+  pointer-events: none;
+}
+
+
+.order-list-search {
+  position: relative;
+  display: inline-block;
+  width: 220px; 
+}
