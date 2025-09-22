@@ -99,20 +99,31 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 435px) {
+  .graph-component {
+    max-width: 370px;
+    padding: 12px;
+  }
+
+  .current-week {
+    font-size: small;
+   
+  }
+
+  .previous-week {
+    font-size: small;
+  }
+
+
   .graph-title {
     font-size: 16px;
   }
 
   .week-labels {
-    font-size: 13px;
-    gap: 4px;
-    flex-direction: column;
-    align-items: flex-start;
+    display: none !important;
   }
 
   .label-dot {
-    width: 8px;
-    height: 8px;
+    display: none;
   }
 }

@@ -1,4 +1,4 @@
-.product-row {
+.product-component {
   max-width: 662px;
   width: 100%;
   box-sizing: border-box;
@@ -47,4 +47,13 @@
 .product-table tbody tr:hover {
   background-color: var(--hover-bg-color);
   cursor: pointer;
+}
+
+
+@media (max-width: 435px) {
+  .product-component {
+  max-width: 370px;
+  width: 70%;
+
+}
 }

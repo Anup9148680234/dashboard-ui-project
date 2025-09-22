@@ -23,5 +23,22 @@
   border-radius: 15px;
 }
 
-
+@media (max-width: 600px) {
+  .chart-paper {
+    max-width: 300px;
+    height: auto;
+    max-height: 170px;
+    padding: 12px;
+    border-radius: 12px;
+  }
+  .chart-title {
+    font-size: 13px !important;
+    transform: translate(10px, 0);
+  }
+  .chart-container {
+    height: 120px;
+    border-radius: 8px;
+    margin-top: 20px !important;
+  }
+}
 
