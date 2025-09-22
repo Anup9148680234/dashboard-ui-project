@@ -101,6 +101,7 @@
 
 @media (max-width: 435px) {
   .graph-component {
+    margin-top: 20px!important;
     max-width: 370px;
     padding: 12px;
   }

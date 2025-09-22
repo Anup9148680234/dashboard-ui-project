@@ -30,6 +30,7 @@
     max-height: 170px;
     padding: 12px;
     border-radius: 12px;
+    margin-top: 40px !important;
   }
   .chart-title {
     font-size: 13px !important;
